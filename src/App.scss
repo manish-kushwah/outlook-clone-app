@@ -1,11 +1,26 @@
+$text-color: #636363;
+$bg-color: #f4f5f9;
+
 .App {
-  text-align: center;
-  background-color: #ffffff;
+  text-align: initial;
+  background-color: $bg-color;
+  margin: 2vmax 7vmax;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #000000;
+  font-size: 20px;
+  color: $text-color;
 }
+
+.email-list {
+  flex-grow: 1;
+  background-color: chartreuse;
+}
+
+// .email-body {
+//   flex-grow: 3;
+// }
+
+// .filter-button {
+//   background-color: cyan;
+// }
