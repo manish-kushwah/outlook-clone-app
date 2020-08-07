@@ -1,0 +1,70 @@
+.email-list {
+  flex-grow: 1;
+  background-color: #f4f5f9;
+  height: inherit;
+  overflow-y: hidden;
+  margin: 10px 0px;
+
+  ul {
+    list-style: none;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 0px;
+    background-color: #ddd;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #aaa;
+  }
+
+  &:hover {
+    overflow-y: scroll;
+  }
+
+  .mailer-info {
+    line-height: 2rem;
+  }
+}
+
+.li-body {
+  padding: 15px;
+  margin: 0px 20px 20px;
+  border-radius: 5px;
+  border: 1px solid #cfd2dc;
+  background-color: #ffffff;
+  position: relative;
+  padding-left: 80px;
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3.2rem;
+    border-radius: 50px;
+    background-color: crimson;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+.email-body {
+  flex-grow: 10;
+  height: inherit;
+  margin: 10px 20px;
+  overflow-y: hidden;
+
+  header {
+    line-height: 3.2rem;
+  }
+}
+
+.dashboard {
+  display: flex;
+  height: 85vh;
+}
