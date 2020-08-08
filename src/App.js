@@ -1,10 +1,14 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { FilterButtons, EmailList, EmailBody } from "./components/export";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello React </h1>
+      <FilterButtons />
+      <section className="dashboard">
+        <EmailList />
+        <EmailBody />
+      </section>
     </div>
   );
 }

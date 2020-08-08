@@ -1,0 +1,91 @@
+@mixin reset-scroll-bar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ddd;
+    visibility: hidden;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #aaa;
+    visibility: hidden;
+  }
+
+  &:hover {
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      visibility: visible;
+    }
+    &::-webkit-scrollbar-thumb {
+      visibility: visible;
+    }
+  }
+}
+
+.email-list {
+  flex-grow: 1.4;
+  background-color: #f4f5f9;
+  height: inherit;
+  width: min-content;
+  overflow-y: auto;
+  margin: 10px 0px;
+
+  ul {
+    list-style: none;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  @include reset-scroll-bar;
+
+  .mailer-info {
+    line-height: 2rem;
+  }
+}
+
+.li-body {
+  padding: 15px;
+  margin: 0px 20px 20px;
+  border-radius: 5px;
+  border: 1px solid #cfd2dc;
+  background-color: #ffffff;
+  position: relative;
+  padding-left: 80px;
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3.2rem;
+    border-radius: 50px;
+    background-color: crimson;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+.email-body {
+  flex-grow: 3;
+  height: inherit;
+  width: min-content;
+  margin: 10px 20px;
+  overflow-y: auto;
+
+  @include reset-scroll-bar;
+
+  header {
+    line-height: 3.2rem;
+  }
+}
+
+.email-body-text {
+  font-size: smaller;
+  font-weight: 400;
+}
+
+.dashboard {
+  display: flex;
+  height: 85vh;
+}
