@@ -21,7 +21,7 @@ const emailList = () => {
         <br />
         <span>{email.short_description}</span>
         <br />
-        <span>{email.date}</span>
+        <span>{new Date(email.date).toLocaleString().slice(0, 28)}</span>
       </div>
     </li>
   ));

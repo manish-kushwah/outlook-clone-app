@@ -1,6 +1,20 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 const emailBody = () => {
+  const [email, setEmail] = useState({});
+
+  useEffect(() => {
+    (async function () {
+      const data = await fetch(
+        "https://ll.bhagirathsingh.vercel.app/api/email?id=1"
+      ).then((res) => res.json());
+
+      console.log(data);
+
+      setEmail(data);
+    })();
+  }, []);
+
   return (
     <Fragment>
       <section className="email-body li-body">
@@ -10,7 +24,9 @@ const emailBody = () => {
           <span>date time</span>
           <br />
           <br />
-          <span>email body</span>
+          <span id={email.id} className="email-body-text">
+            {email.body}
+          </span>
         </div>
       </section>
     </Fragment>

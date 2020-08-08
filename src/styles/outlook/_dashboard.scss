@@ -1,8 +1,32 @@
+@mixin reset-scroll-bar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ddd;
+    visibility: hidden;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #aaa;
+    visibility: hidden;
+  }
+
+  &:hover {
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      visibility: visible;
+    }
+    &::-webkit-scrollbar-thumb {
+      visibility: visible;
+    }
+  }
+}
+
 .email-list {
-  flex-grow: 1;
+  flex-grow: 1.4;
   background-color: #f4f5f9;
   height: inherit;
-  overflow-y: hidden;
+  width: min-content;
+  overflow-y: auto;
   margin: 10px 0px;
 
   ul {
@@ -11,18 +35,7 @@
     padding: 0rem;
   }
 
-  &::-webkit-scrollbar {
-    width: 5px;
-    height: 0px;
-    background-color: #ddd;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #aaa;
-  }
-
-  &:hover {
-    overflow-y: scroll;
-  }
+  @include reset-scroll-bar;
 
   .mailer-info {
     line-height: 2rem;
@@ -54,14 +67,22 @@
 }
 
 .email-body {
-  flex-grow: 10;
+  flex-grow: 3;
   height: inherit;
+  width: min-content;
   margin: 10px 20px;
-  overflow-y: hidden;
+  overflow-y: auto;
+
+  @include reset-scroll-bar;
 
   header {
     line-height: 3.2rem;
   }
+}
+
+.email-body-text {
+  font-size: smaller;
+  font-weight: 400;
 }
 
 .dashboard {
