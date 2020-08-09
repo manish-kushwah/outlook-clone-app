@@ -9,15 +9,13 @@ const emailBody = () => {
         "https://ll.bhagirathsingh.vercel.app/api/email?id=1"
       ).then((res) => res.json());
 
-      console.log(data);
-
       setEmail(data);
     })();
   }, []);
 
   return (
     <Fragment>
-      <section className="email-body li-body">
+      <section className="email-body li-body" style={{ display: "none" }}>
         <div className="avatar">F</div>
         <div>
           <header>Subject</header>

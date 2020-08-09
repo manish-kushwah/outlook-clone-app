@@ -1,18 +1,27 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { getEmailList } from "../api";
+import { connect } from "react-redux";
+import { fetchEmails } from "../state/actions/dashboardActions";
 
-const emailList = () => {
-  const [data, setData] = useState([]);
-
+const emailList = (props) => {
   useEffect(() => {
-    (async function () {
-      const { list } = await getEmailList();
-      setData(list);
-    })();
+    props.fetchEmails();
   }, []);
 
-  const listItem = data.map((email) => (
-    <li key={email.id} className="li-body">
+  if (!props.emails) {
+    return "loading...";
+  }
+
+  const openCopleteMail = () => {
+    const element = document.getElementsByClassName("email-body");
+    if (element[0].style.display != "none") {
+      element[0].style.display = "none";
+    } else {
+      element[0].style.display = "";
+    }
+  };
+
+  const listItem = props.emails.list.map((email) => (
+    <li key={email.id} className="li-body" onClick={openCopleteMail}>
       <div className="avatar">F</div>
       <div className="mailer-info">
         <span>From : {email.from.name}</span>
@@ -26,10 +35,6 @@ const emailList = () => {
     </li>
   ));
 
-  if (!data.length) {
-    return "loading...";
-  }
-
   return (
     <Fragment>
       <section className="email-list">
@@ -39,4 +44,6 @@ const emailList = () => {
   );
 };
 
-export default emailList;
+export default connect((state) => ({ emails: state.emails.items }), {
+  fetchEmails,
+})(emailList);
